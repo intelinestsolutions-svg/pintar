@@ -1,0 +1,21 @@
+# SmartDocs by Studio Pro
+
+> SmartDocs (pintar.prostudio.my) is an online documents writer by Studio Pro for creating and managing invoices, sales receipts, delivery notes, quotations, purchase orders, credit notes, and proforma invoices. Based in Kota Kinabalu, Sabah, Malaysia.
+
+## Key pages
+- [Home](https://pintar.prostudio.my/): SmartDocs dashboard and document workspace.
+- [About](https://pintar.prostudio.my/about.html): About Studio Pro and SmartDocs.
+- [Contact](https://pintar.prostudio.my/contact.html): Contact details for Studio Pro.
+- [Terms](https://pintar.prostudio.my/terms.html): Terms of use.
+- [Privacy](https://pintar.prostudio.my/privacy.html): Privacy information.
+
+## Business
+- Organization: Studio Pro
+- Email: [admin@prostudio.my](mailto:admin@prostudio.my)
+- Phone: [+60 13-869 9933](tel:+60138699933)
+- Address: F-8-1, Block F, Cyber City Apartment 2, 88200 Kota Kinabalu, Sabah, Malaysia
+- Website: https://prostudio.my
+
+## Machine-readable resources
+- [Sitemap](https://pintar.prostudio.my/sitemap.xml)
+- [robots.txt](https://pintar.prostudio.my/robots.txt)

@@ -1,0 +1,17 @@
+{
+  "name": "smart-documents-writer",
+  "version": "2.0.0",
+  "description": "Web-based app to create invoices, sales receipts and delivery notes (Node.js + SQLite)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo build complete"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^10.3.1"
+  },
+  "keywords": ["invoice", "receipt", "delivery-note", "pwa", "sqlite"],
+  "license": "MIT"
+}

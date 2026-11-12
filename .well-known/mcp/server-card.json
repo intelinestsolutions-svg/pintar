@@ -1,0 +1,17 @@
+{
+  "name": "SmartDocs by Studio Pro",
+  "version": "1.0.0",
+  "description": "MCP Server Card for SmartDocs (pintar.prostudio.my), an online documents writer by Studio Pro.",
+  "endpoint": "https://pintar.prostudio.my/",
+  "capabilities": {
+    "tools": [],
+    "resources": [],
+    "prompts": []
+  },
+  "documentation": "https://pintar.prostudio.my/llms.txt",
+  "contact": {
+    "email": "admin@prostudio.my",
+    "phone": "+60 13-869 9933",
+    "url": "https://pintar.prostudio.my/contact.html"
+  }
+}
