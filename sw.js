@@ -1,5 +1,5 @@
 // SmartDocs service worker — network-first so deploys take effect immediately.
-const CACHE = 'smartdocs-v6';
+const CACHE = 'smartdocs-v7';
 const ASSETS = ['./', './index.html', './css/style.css', './js/app.js', './manifest.json'];
 
 self.addEventListener('install', e => {

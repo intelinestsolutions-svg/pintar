@@ -1,5 +1,5 @@
 /* Smart Documents Writer - App Logic */
-const APP_VERSION = '2026-10-26e';
+const APP_VERSION = '2026-11-13-templates';
 console.info('[SmartDocs] build ' + APP_VERSION);
 const STORAGE_KEY = 'smartdocs_v1';
 const SETTINGS_KEY = 'smartdocs_settings_v1';
@@ -251,6 +251,12 @@ const TEMPLATES = [
   { key: 'corporate', label: 'Corporate (gradient header)' },
   { key: 'elegant', label: 'Elegant (purple, light)' },
   { key: 'sleek', label: 'Sleek (dark totals)' },
+  { key: 'aurora', label: 'Aurora (soft gradient)' },
+  { key: 'heritage', label: 'Heritage (emerald & gold)' },
+  { key: 'blueprint', label: 'Blueprint (technical grid)' },
+  { key: 'luxe', label: 'Luxe (black & gold)' },
+  { key: 'nordic', label: 'Nordic (clean wave)' },
+  { key: 'sunrise', label: 'Sunrise (warm gradient)' },
 ];
 const DOC_TYPES = [
   { key: 'invoice', label: 'Invoice', prefix: 'INV' },
