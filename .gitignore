@@ -1,7 +1,53 @@
+# ---------------------------------------------------------------------------
+# SmartDocs - files that must NEVER be committed or deployed over live data
+# ---------------------------------------------------------------------------
+
+# Dependencies
 node_modules/
+
+# Environment / secrets (admin credentials live here)
 .env
+.env.*
+!.env.example
+
+# Runtime data: SQLite/JSON database, customers, saved documents, users.
+# server.js creates DATA_DIR automatically, so this folder does not need to
+# exist in the repository or on a fresh deploy.
+data/
+data/**
+
+# Any database file, including SQLite sidecar/journal files
+*.db
+*.db-*
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
+
+# Local database dumps and backups
+*.bak
+*.dump
+*.sqlite.bak
+*.db.bak
+backups/
+backup/
+
+# Logs
 *.log
+logs/
 console.log
 stderr.log
-data/
+
+# User uploads / generated exports
+uploads/
+exports/
+
+# OS / editor noise
 .DS_Store
+Thumbs.db
+*.swp
+*~

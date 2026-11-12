@@ -47,6 +47,21 @@ python3 -m http.server 8765
 ```
 Or `npm start`.
 
+## Deployment safety
+Live data must never travel through git. `.gitignore` excludes the whole `data/`
+directory (customers, users/credentials and saved documents), every `*.db` /
+`*.sqlite` file and its journal/WAL files, `.env`, logs, backups, uploads and exports.
+
+On the server, keep the database outside the deployed checkout where possible:
+
+```bash
+DATA_DIR=/home/<user>/smartdocs-data node server.js
+```
+
+`server.js` creates `DATA_DIR` automatically. Deleting or replacing the deployed
+checkout then no longer touches customer data, and `git pull` can never overwrite
+or remove the live database. Back up `DATA_DIR` before upgrades.
+
 ## Structure
 - `index.html` - app shell
 - `css/style.css` - styles (responsive + print)
