@@ -434,6 +434,103 @@ textarea { resize: vertical; min-height: 60px; }
 }
 .doc-preview.tpl-sunrise .doc-notes { border-top-color: #fde7d6; }
 
+/* Watermark slot: hidden by default, shown by specific templates. */
+.doc-watermark { display: none; }
+
+/* Spectrum: adapted from the MIT-licensed arboshiki invoice design
+   (https://bootsnipp.com/snippets/8MPnQ, via danfickle/pdf-templates). */
+.doc-preview.tpl-spectrum { --tpl-accent: #1d6fa5; font-family: 'Inter', sans-serif; }
+.doc-preview.tpl-spectrum .doc-header { padding-bottom: 18px; border-bottom: 3px solid #1d6fa5; }
+.doc-preview.tpl-spectrum .doc-title { color: #1d6fa5; letter-spacing: 1px; }
+.doc-preview.tpl-spectrum .doc-table th { background: #e6f0f6; color: #26536f; border-bottom: 0; }
+.doc-preview.tpl-spectrum .doc-table td { border-bottom: 2px solid #fff; }
+.doc-preview.tpl-spectrum .doc-table tbody tr:nth-child(odd) td { background: #f5f9fb; }
+.doc-preview.tpl-spectrum .doc-table tbody tr:nth-child(even) td { background: #eaf2f7; }
+.doc-preview.tpl-spectrum .doc-table td:first-child {
+  background: #1d6fa5; color: #fff; font-weight: 700; text-align: center;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc-preview.tpl-spectrum .doc-totals-row.total {
+  background: #1d6fa5; color: #fff; padding: 10px 12px; border: 0;
+}
+.doc-preview.tpl-spectrum .doc-notes { border-top-color: #d6e6ef; }
+
+/* Editorial: magazine-inspired layout, after the MIT-licensed
+   formfeed-dev/templates annual-report styling. */
+.doc-preview.tpl-editorial { --tpl-accent: #4338ca; font-family: 'Georgia', serif; }
+.doc-preview.tpl-editorial .doc-header {
+  position: relative; overflow: hidden; padding-bottom: 24px;
+  border-bottom: 1px solid #c7d2fe;
+}
+.doc-preview.tpl-editorial .doc-title {
+  color: #1e1b4b; font-size: 30px; line-height: 1.05;
+  font-weight: 400; letter-spacing: 0; text-transform: uppercase;
+}
+.doc-preview.tpl-editorial .doc-title::before { content: '\2014 '; color: #4338ca; }
+.doc-preview.tpl-editorial .doc-brand { font-size: 20px; letter-spacing: .5px; }
+.doc-preview.tpl-editorial .doc-brand-sub { font-family: 'Inter', sans-serif; }
+.doc-preview.tpl-editorial .doc-table th {
+  background: transparent; color: #4338ca;
+  border-bottom: 2px solid #1e1b4b; letter-spacing: 1.5px;
+}
+.doc-preview.tpl-editorial .doc-totals { border-top: 1px solid #c7d2fe; padding-top: 12px; }
+.doc-preview.tpl-editorial .doc-totals-row.total { color: #1e1b4b; border-top: 2px solid #1e1b4b; }
+.doc-preview.tpl-editorial .doc-notes h4 { color: #4338ca; }
+.doc-preview.tpl-editorial .doc-watermark {
+  display: block; position: absolute; right: -14px; bottom: -56px;
+  font-family: 'Georgia', serif; font-size: 190px; line-height: 1; font-weight: 700;
+  color: #eef2ff; letter-spacing: -12px; pointer-events: none;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc-preview.tpl-editorial .doc-header > *:not(.doc-watermark) { position: relative; z-index: 1; }
+
+/* Monogram: oversized brand initials as a soft graphic (after modern
+   monogram branding layouts). */
+.doc-preview.tpl-monogram { --tpl-accent: #111827; font-family: 'Inter', sans-serif; }
+.doc-preview.tpl-monogram .doc-header {
+  position: relative; overflow: hidden; padding-bottom: 20px;
+  border-bottom: 1px solid #d1d5db;
+}
+.doc-preview.tpl-monogram .doc-title { color: #111827; font-weight: 900; letter-spacing: 6px; }
+.doc-preview.tpl-monogram .doc-table th {
+  background: #111827; color: #fff; border-bottom: 2px solid #111827;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc-preview.tpl-monogram .doc-totals-row.total {
+  background: #111827; color: #fff; padding: 10px 12px; border: 0;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc-preview.tpl-monogram .doc-watermark {
+  display: block; position: absolute; top: -34px; right: -12px;
+  font-family: 'Inter', sans-serif; font-size: 210px; line-height: 1; font-weight: 900;
+  color: #f1f5f9; letter-spacing: -14px; pointer-events: none;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.doc-preview.tpl-monogram .doc-header > *:not(.doc-watermark) { position: relative; z-index: 1; }
+
+/* Thermal: receipt-inspired dashed rules and a barcode strip, after the
+   MIT-licensed formfeed-dev/templates receipt styling. */
+.doc-preview.tpl-thermal { --tpl-accent: #111827; font-family: 'Courier New', monospace; background: #fffef9; }
+.doc-preview.tpl-thermal .doc-header {
+  position: relative; padding-bottom: 30px; border-bottom: 2px dashed #111827;
+}
+.doc-preview.tpl-thermal .doc-brand { font-family: inherit; font-size: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.doc-preview.tpl-thermal .doc-title { font-family: inherit; color: #111827; letter-spacing: 5px; font-size: 24px; }
+.doc-preview.tpl-thermal .doc-meta { font-size: 10px; }
+.doc-preview.tpl-thermal .doc-table th {
+  background: transparent; color: #111827; border-bottom: 1px dashed #111827;
+}
+.doc-preview.tpl-thermal .doc-table td { border-bottom: 1px dashed #d6d3d1; font-size: 11px; }
+.doc-preview.tpl-thermal .doc-totals { border-top: 2px dashed #111827; padding-top: 10px; }
+.doc-preview.tpl-thermal .doc-totals-row.total { border-top: 1px dashed #111827; color: #111827; }
+.doc-preview.tpl-thermal .doc-notes { border-top: 1px dashed #111827; }
+.doc-preview.tpl-thermal .doc-watermark {
+  display: block; position: absolute; left: 0; right: 0; bottom: 3px; height: 18px;
+  font-size: 0; color: transparent; pointer-events: none; opacity: .78;
+  background: repeating-linear-gradient(90deg, #111827 0 2px, transparent 2px 5px, #111827 5px 6px, transparent 6px 10px);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
 .doc-preview .doc-title { color: var(--tpl-accent, #5b8cff); }
 
 /* Preview / print document */
@@ -543,6 +640,11 @@ textarea { resize: vertical; min-height: 60px; }
   .content { padding: 0; overflow: visible; }
   .doc-preview { box-shadow: none; max-width: 100%; }
   .doc-preview::before, .doc-preview::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  .doc-watermark {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;

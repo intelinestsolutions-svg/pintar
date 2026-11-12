@@ -257,6 +257,10 @@ const TEMPLATES = [
   { key: 'luxe', label: 'Luxe (black & gold)' },
   { key: 'nordic', label: 'Nordic (clean wave)' },
   { key: 'sunrise', label: 'Sunrise (warm gradient)' },
+  { key: 'spectrum', label: 'Spectrum (blue blocks)' },
+  { key: 'editorial', label: 'Editorial (magazine style)' },
+  { key: 'monogram', label: 'Monogram (bold watermark)' },
+  { key: 'thermal', label: 'Thermal (receipt style)' },
 ];
 const DOC_TYPES = [
   { key: 'invoice', label: 'Invoice', prefix: 'INV' },
@@ -980,6 +984,8 @@ function docHtml(d) {
     d.type === 'purchaseorder' ? 'PURCHASE ORDER' :
     d.type === 'creditnote' ? 'CREDIT NOTE' :
     d.type === 'proforma' ? 'PROFORMA INVOICE' : d.type.toUpperCase();
+  const brandName = d.from.name || s.companyName || '';
+  const initials = brandName.split(/\s+/).filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase();
   return `
     <div class="doc-header">
       <div>
@@ -997,6 +1003,7 @@ function docHtml(d) {
         <div class="doc-meta">Currency: ${escapeHtml(cur)}</div>
         ${d.type === 'receipt' ? `<div class="doc-meta">Payment: ${escapeHtml(d.paymentMethod)}</div>` : ''}
       </div>
+      <div class="doc-watermark" aria-hidden="true">${escapeHtml(initials)}</div>
     </div>
 
     <div class="doc-parties">
