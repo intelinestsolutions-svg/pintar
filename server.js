@@ -101,7 +101,7 @@ try {
       return r || null;
     },
     getUserByUsername(username) {
-      return db.prepare('SELECT * FROM users WHERE username=?').get(username) || null;
+      return db.prepare('SELECT * FROM users WHERE lower(username)=lower(?)').get(username) || null;
     },
     saveUser(u) {
       if (!u.id) u.id = 'u_' + crypto.randomBytes(6).toString('hex') + Date.now().toString(36);
@@ -130,7 +130,7 @@ try {
         const { salt, hash } = hashPassword(password);
         const now = new Date().toISOString();
         db.prepare('INSERT INTO users (id,username,password,salt,role,name,createdAt,updatedAt) VALUES (?,?,?,?,?,?,?,?)')
-          .run('u_admin', 'admin', hash, salt, 'admin', 'Administrator', now, now);
+          .run('u_admin', ADMIN_USERNAME, hash, salt, 'admin', 'Administrator', now, now);
       }
     },
   };
@@ -187,7 +187,7 @@ try {
     deleteRecurring(id) { cache.recurring = (cache.recurring || []).filter(r => r.id !== id); persist(); },
     listUsers() { return (cache.users || []).map(u => ({ id: u.id, username: u.username, role: u.role, name: u.name, createdAt: u.createdAt, updatedAt: u.updatedAt })); },
     getUser(id) { const u = (cache.users || []).find(x => x.id === id); return u ? { id: u.id, username: u.username, role: u.role, name: u.name, createdAt: u.createdAt, updatedAt: u.updatedAt } : null; },
-    getUserByUsername(username) { return (cache.users || []).find(u => u.username === username) || null; },
+    getUserByUsername(username) { return (cache.users || []).find(u => String(u.username || '').toLowerCase() === String(username || '').toLowerCase()) || null; },
     saveUser(u) {
       if (!u.id) u.id = 'u_' + crypto.randomBytes(6).toString('hex') + Date.now().toString(36);
       u.updatedAt = new Date().toISOString();
@@ -213,7 +213,7 @@ try {
         if (!cache.users) cache.users = [];
         const { salt, hash } = hashPassword(password);
         const now = new Date().toISOString();
-        cache.users.push({ id: 'u_admin', username: 'admin', password: hash, salt, role: 'admin', name: 'Administrator', createdAt: now, updatedAt: now });
+        cache.users.push({ id: 'u_admin', username: ADMIN_USERNAME, password: hash, salt, role: 'admin', name: 'Administrator', createdAt: now, updatedAt: now });
         persist();
       }
     },
@@ -283,6 +283,7 @@ function migrateLegacyBranding() {
 
 // ---------- Auth ----------
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'StudioPro2026!';
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'Admin';
 const sessions = new Map();
 
 // Seed default admin user (SQLite)
